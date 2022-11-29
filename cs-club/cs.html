@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <link rel="stylesheet" href="cs.css">
+        <link  href="details.html">
+       
+        <title>CS Club</title>
+
+    </head> 
+    
+    <body>
+      
+      <div class="sticky"> <!-- srart header -->
+       <header class="main">
+       <div> <img src="image/cs3.png"> </div>
+        <div class="icon">
+            <img src="image/icons8-instagram-old-50.png" class="insta"></img>
+            <img src="image/icons8-facebook-48.png" class="insta"></img>
+            <img src="image/icons8-telegram-50.png" class="insta"></img>
+
+
+        </div>
+       </header>
+        <!-- end header -->
+                <!-- start nav -->
+
+
+<nav>
+    <ul>
+        <li>
+             الرئيسية
+        </li>
+        <li>
+           <a href="gools.html"> الاهداف</a> 
+        </li>
+        <li>
+            <a href="university.html">عن الجامعة </a> 
+            
+        </li>
+        <li>
+            <a href="spc.html"> عن التخصص </a> 
+            
+        </li>
+        <li>
+            <a href="vision.html"> الرؤية  </a> 
+
+         
+        </li>
+    </ul>
+</nav>
+</div> 
+        <!-- end nav -->
+        <!-- start main content-->
+        <main>
+            <div>
+                <h4>مرحباً بكم في الموقع الالكتروني ل نادي علم الحاسوب في جامعة فلسطين التقنية خضوري </h4>
+                
+            </div>
+          
+        </main>
+        <!-- end main-->
+        <!-- start article -->
+         <div class="post">
+            <article>
+                <header>
+                    <h3>اخر الاخبار </h3>
+                    
+                </header>
+               <section>
+                      <p>هنا توضع اخر الاخبار</p>
+                    </section>
+              </article>
+          <article>
+            <header>
+                <h3>فيديو توضيحي لعمل النادي</h3>
+                
+            </header>
+           
+                <section>
+                    <video src="image/IMG_7527.MOV" controls></video>
+                  
+                </section>
+         
+          </article>
+          <article>
+            <header>
+                <h3>الاعلانات  </h3>
+                
+            </header>
+           
+                <section>
+                  <div>
+                    <h3>  الأعلان عن بدء عقد محاضرات تقوية في بعض مواد التخصص ,كما هو موضح في الجدول التالي</h3>
+                    <table>
+                        <tr>
+                          <th>المادة</th>
+                          <th>الموعد</th>
+                          <th>المكان</th>
+                        </tr>
+                        <tr>
+                          <td>calculas</td>
+                          <td>  </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>java</td>
+                          <td>Wednesday 12:30 pm</td>
+                          <td>C203</td>
+                        </tr>
+                        <tr>
+                          <td>c++</td>
+                          <td>Monday ,12:30 pm</td>
+                          <td>c203</td>
+                        </tr>
+                        
+                      </table>
+                  </div>
+                </section>
+         
+          </article>
+          
+          <article>
+
+            <header>
+                <h3>من محاضرات التقوية  </h3>
+               
+            </header>
+          <section>
+            <div>
+                <img src="image/37b4249f-4932-47dd-be42-ef374395d018.jfif">
+                <img src="image/7fe048be-e6c2-408e-95ec-b03cd642d299.jfif">
+                <img src="image/44940490-5fd3-4289-ac92-9304b6187559.jfif">
+                <img src="image/c304f8dc-5d96-4beb-89dd-a2d9e4b844b0.jfif">
+            </div>
+                </section>
+          </article>
+        
+        </div>
+          
+       <!-- End article -->
+          <!-- start sidebar-->
+      <aside >
+        <section class="links">
+            <h3>test</h3>
+           <ul>
+            <li>
+                اخر الاخبار
+            </li>
+            <li>
+               حصاد الاسبوع
+            </li>
+            <li>
+                مواعيد المحاضرات 
+            </li>
+            <li>
+                فعاليات النادي 
+            </li>
+           </ul>
+        </section>
+        <section class="links">
+            <h3>التعليقات</h3>
+            <div class="container">
+                <h2>اترك ملاحظاتك هنا</h2>
+                <form>
+                   <textarea id="" placeholder="اضف تعليق" value=" "></textarea>
+                   <div class="btn">
+                       <input id="submit" type="submit" value="Comment">
+                       <button id="clear">  
+                      clear</button>
+                   </div> 
+                </form>
+            </div>
+            <div class="comments">
+               <h2>التعليقات </h2>
+                <div id="comment-box">
+                </div>
+            </div>
+        </section>
+    <!-- js code-->
+    <script>
+    const field = document.querySelector('textarea');
+const backUp = field.getAttribute('placeholder')
+const btn = document.querySelector('.btn');
+const clear = document.getElementById('clear')
+const submit = document.querySelector('#submit')
+// const comments = document.querySelector('#comment-box')
+const comments = document.getElementById('comment-box');
+
+// array to store the comments
+const comments_arr = [];
+
+// to generate html list based on comments array
+const display_comments = () => {
+  let list = '<ul>';
+   comments_arr.forEach(comment => {
+    list += `<li>${comment}</li>`;
+  })
+  list += '</ul>';
+  comments.innerHTML = list;
+}
+
+clear.onclick = function(event){
+  event.preventDefault();
+  // reset the array  
+   comments_arr.length = 0;
+  // re-genrate the comment html list
+  display_comments();
+}
+
+submit.onclick = function(event){
+    event.preventDefault();
+    const content = field.value;
+    if(content.length > 0){ // if there is content
+      // add the comment to the array
+      comments_arr.push(content);
+      // re-genrate the comment html list
+      display_comments();
+      // reset the textArea content 
+      field.value = '';
+    }
+}
+</script>
+<!-- end js code-->
+
+       </aside>
+       <!-- End  sidebar-->
+      <div class="clearfix"></div>
+       <!-- Start footer -->
+       <footer>
+        copyright 2022 &copy; All Right Reserved <br><br>
+        Developed by a CS team
+       </footer>
+       <!-- End footer -->
+    </body>
